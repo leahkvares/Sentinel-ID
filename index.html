@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sentinel ID</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" onclick="showPage('home')">SENTINEL<span> ID</span></a>
+    <ul class="nav-links">
+      <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+      <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+      <li><a onclick="showPage('invest')" id="nav-invest">Invest</a></li>
+    </ul>
+    <button class="nav-cta" onclick="showPage('invest')">Get Access</button>
+  </nav>
+
+  <!-- ── HOME PAGE ── -->
+  <div id="home" class="page active">
+    <div class="bg-number">2FA</div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">// Multi-factor authentication — reimagined</p>
+      <h1 class="hero-title">
+        <span class="line"><span class="line-inner">SENTINEL</span></span>
+        <span class="line"><span class="line-inner">ID</span></span>
+        <span class="line"><span class="line-inner">SECURITY.</span></span>
+      </h1>
+      <p class="hero-phrase">
+        Get <strong>Sentinel ID</strong>... Today.<br>
+        The last authentication layer you'll ever need.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('invest')">Request Early Access</button>
+        <button class="btn-ghost" onclick="showPage('about')">Learn More</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ABOUT PAGE ── -->
+  <div id="about" class="page">
+    <div class="page-header">
+      <p class="page-tag">// Who we are</p>
+      <h2 class="page-heading">About</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          <strong>Sentinel ID</strong> was built out of frustration. Legacy MFA is broken — SMS codes get intercepted, authenticator apps get lost, and hardware tokens get left on desks.
+        </p>
+        <p>
+          We rebuilt multi-factor authentication from scratch. Our protocol combines device-bound cryptographic keys, behavioral biometrics, and real-time threat signals into a single seamless step.
+        </p>
+        <p>
+          No codes. No popups. No friction. Just <strong>zero-trust verification</strong> that works the way security should — invisibly, instantly, and everywhere.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-num">0.3ms</div>
+          <div class="stat-label">Average auth latency</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">99.99%</div>
+          <div class="stat-label">Uptime SLA</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">256-bit</div>
+          <div class="stat-label">End-to-end encryption</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Successful breaches to date</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">Device-Bound Keys</div>
+        <div class="pillar-desc">Cryptographic secrets never leave the device. No server ever sees your private key — period.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">Behavioral Layer</div>
+        <div class="pillar-desc">Continuous passive signals — typing cadence, location entropy, device posture — authenticate you in the background.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">Zero-Knowledge Proofs</div>
+        <div class="pillar-desc">Verify identity without revealing identity. We prove you're you without ever knowing who you are.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── INVEST PAGE ── -->
+  <div id="invest" class="page">
+    <div class="page-header">
+      <p class="page-tag">// Join the round</p>
+      <h2 class="page-heading">Invest</h2>
+    </div>
+
+    <div class="invest-intro">
+      <div class="body-text">
+        The identity security market is a <strong style="color:#fff">$28B opportunity</strong> and it's being defended by 20-year-old technology. We're raising our seed round to bring Sentinel ID to market. If you believe authentication should be invisible, we'd like to talk.
+      </div>
+    </div>
+
+    <div class="traction-bar">
+      <div class="traction-item">
+        <div class="traction-val">$2.4M</div>
+        <div class="traction-lbl">Seed round target</div>
+      </div>
+      <div class="traction-item">
+        <div class="traction-val">14</div>
+        <div class="traction-lbl">Design partners signed</div>
+      </div>
+      <div class="traction-item">
+        <div class="traction-val">40K+</div>
+        <div class="traction-lbl">Waitlist signups</div>
+      </div>
+      <div class="traction-item">
+        <div class="traction-val">Q3 '26</div>
+        <div class="traction-lbl">Public launch target</div>
+      </div>
+    </div>
+
+    <div class="invest-grid">
+      <div class="invest-card">
+        <div class="invest-card-tag">// The problem</div>
+        <div class="invest-card-title">MFA is broken and everyone knows it</div>
+        <div class="invest-card-body">83% of breaches involve compromised credentials. SMS-based OTPs are trivially intercepted. Push fatigue is a real attack vector. The enterprise is spending more on auth and getting less security.</div>
+      </div>
+      <div class="invest-card">
+        <div class="invest-card-tag">// The solution</div>
+        <div class="invest-card-title">Authentication that disappears</div>
+        <div class="invest-card-body">Sentinel ID replaces every authentication touchpoint with a single cryptographic handshake. Drop-in SDKs for web, mobile, and enterprise. SAML, OIDC, and FIDO2 compliant out of the box.</div>
+      </div>
+      <div class="invest-card">
+        <div class="invest-card-tag">// The model</div>
+        <div class="invest-card-title">Usage-based SaaS, enterprise contracts</div>
+        <div class="invest-card-body">Per-MAU pricing at the SMB tier. Annual committed contracts for enterprise with volume discounts. Professional services and custom deployments for regulated industries.</div>
+      </div>
+      <div class="invest-card">
+        <div class="invest-card-tag">// The ask</div>
+        <div class="invest-card-title">We're opening $2.4M seed</div>
+        <div class="invest-card-body">We've built the protocol. We have design partners. We need fuel to ship. Minimum check size $25K. Deck and data room available after NDA. Reach out via the form below.</div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-block-text">
+        <h3>Ready to talk?</h3>
+        <p>investors@sentinelid.io &nbsp;·&nbsp; Deck available under NDA</p>
+      </div>
+      <button class="btn-primary" style="white-space:nowrap" onclick="alert('Thanks for your interest in Sentinel ID. We\'ll be in touch.')">Request Deck →</button>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span class="highlight">SENTINEL ID</span>
+      <span>Zero-Trust Auth</span>
+      <span class="highlight">·</span>
+      <span>Device-Bound Keys</span>
+      <span class="highlight">·</span>
+      <span>0.3ms Latency</span>
+      <span class="highlight">·</span>
+      <span>FIDO2 Compliant</span>
+      <span class="highlight">·</span>
+      <span>40K+ Waitlist</span>
+      <span class="highlight">·</span>
+      <span>Seed Round Open</span>
+      <span class="highlight">·</span>
+      <span>Q3 2026 Launch</span>
+      <span class="highlight">·</span>
+      <span class="highlight">SENTINEL ID</span>
+      <span>Zero-Trust Auth</span>
+      <span class="highlight">·</span>
+      <span>Device-Bound Keys</span>
+      <span class="highlight">·</span>
+      <span>0.3ms Latency</span>
+      <span class="highlight">·</span>
+      <span>FIDO2 Compliant</span>
+      <span class="highlight">·</span>
+      <span>40K+ Waitlist</span>
+      <span class="highlight">·</span>
+      <span>Seed Round Open</span>
+      <span class="highlight">·</span>
+      <span>Q3 2026 Launch</span>
+      <span class="highlight">·</span>
+    </div>
+  </div>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+
+      const page = document.getElementById(id);
+      if (page) page.classList.add('active');
+
+      const navLink = document.getElementById('nav-' + id);
+      if (navLink) navLink.classList.add('active');
+
+      window.scrollTo({ top: 0 });
+    }
+  </script>
+</body>
+</html>
