@@ -1,0 +1,324 @@
+/* sentinel.css — injected by Sentinel ID content script */
+
+/* ── Hide Duo's native UI when Sentinel is active ── */
+body.sentinel-active #login-form,
+body.sentinel-active .base-wrapper,
+body.sentinel-active #duo-frame,
+body.sentinel-active .content-container,
+body.sentinel-active #main-content {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ── Sentinel overlay ── */
+#sentinel-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(12px);
+  font-family: 'DM Mono', monospace, monospace;
+  animation: sentinel-fade-in 0.3s ease forwards;
+}
+
+@keyframes sentinel-fade-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+#sentinel-card {
+  background: #000;
+  border: 1px solid #222;
+  padding: 2.5rem;
+  width: 360px;
+  max-width: 92vw;
+  position: relative;
+}
+
+/* header */
+.s-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.s-logo {
+  font-family: 'Bebas Neue', 'Impact', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.12em;
+  color: #fff;
+}
+
+.s-logo span { color: #666; }
+
+.s-context {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #444;
+}
+
+/* prompt line */
+.s-prompt {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.s-title {
+  font-family: 'Syne', 'Trebuchet MS', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2rem;
+  line-height: 1.3;
+}
+
+/* ── ONE-TAP ── */
+.s-one-tap-btn {
+  width: 100%;
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 1rem;
+  font-family: 'DM Mono', monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  margin-bottom: 0.75rem;
+}
+
+.s-one-tap-btn:active { transform: scale(0.98); }
+.s-one-tap-btn:hover  { background: #e0e0e0; }
+
+/* ── PIN ── */
+.s-pin-dots {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.s-dot {
+  width: 12px; height: 12px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.s-dot.filled { background: #fff; border-color: #fff; }
+
+.s-numpad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin-bottom: 1rem;
+}
+
+.s-key {
+  background: #0d0d0d;
+  border: 1px solid #1a1a1a;
+  color: #fff;
+  font-family: 'DM Mono', monospace, monospace;
+  font-size: 0.9rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: background 0.1s;
+  text-align: center;
+}
+
+.s-key:hover  { background: #1a1a1a; }
+.s-key:active { background: #252525; }
+.s-key.wide   { grid-column: span 2; }
+.s-key.danger { color: #888; font-size: 0.7rem; letter-spacing: 0.1em; }
+
+/* ── PASSPHRASE ── */
+.s-input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #222;
+  border-bottom: 1px solid #555;
+  color: #fff;
+  font-family: 'DM Mono', monospace, monospace;
+  font-size: 0.85rem;
+  padding: 0.8rem 0.75rem;
+  outline: none;
+  margin-bottom: 1rem;
+  transition: border-color 0.15s;
+  letter-spacing: 0.08em;
+}
+
+.s-input::placeholder { color: #333; }
+.s-input:focus { border-color: #555; }
+
+/* ── PATTERN GRID ── */
+.s-pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  justify-items: center;
+}
+
+.s-node {
+  width: 20px; height: 20px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+  position: relative;
+}
+
+.s-node:hover  { border-color: #666; }
+.s-node.lit    { background: #fff; border-color: #fff; box-shadow: 0 0 8px rgba(255,255,255,0.5); }
+.s-node.active { background: #fff; border-color: #fff; box-shadow: 0 0 12px rgba(255,255,255,0.8); }
+
+.s-pattern-hint {
+  font-size: 0.6rem;
+  color: #444;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* ── BIOMETRIC ── */
+.s-bio-ring {
+  width: 80px; height: 80px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.s-bio-ring:hover {
+  border-color: #666;
+  box-shadow: 0 0 20px rgba(255,255,255,0.05);
+}
+
+.s-bio-ring.scanning {
+  animation: sentinel-scan 1s ease infinite;
+  border-color: #fff;
+}
+
+@keyframes sentinel-scan {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.2); }
+  50%       { box-shadow: 0 0 0 12px rgba(255,255,255,0); }
+}
+
+.s-bio-icon {
+  font-size: 2rem;
+  user-select: none;
+}
+
+.s-bio-label {
+  font-size: 0.62rem;
+  color: #555;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* ── SHARED SUBMIT / ACTION ── */
+.s-submit {
+  width: 100%;
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 0.85rem;
+  font-family: 'DM Mono', monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.s-submit:hover { background: #ddd; }
+.s-submit:disabled { background: #1a1a1a; color: #444; cursor: default; }
+
+/* ── SUCCESS / DENIED STATES ── */
+.s-result {
+  text-align: center;
+  padding: 1rem 0;
+  animation: sentinel-fade-in 0.25s ease;
+}
+
+.s-result-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.s-result-text {
+  font-family: 'Syne', 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.s-result-sub {
+  font-size: 0.6rem;
+  color: #555;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ── STYLE SWITCHER (bottom of card) ── */
+.s-switcher {
+  display: flex;
+  gap: 6px;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #111;
+  justify-content: center;
+}
+
+.s-switch-btn {
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #444;
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  font-family: 'DM Mono', monospace, monospace;
+}
+
+.s-switch-btn:hover   { color: #888; border-color: #222; }
+.s-switch-btn.active  { color: #fff; border-color: #333; }
+
+/* ── DISMISS (top-right X) ── */
+.s-dismiss {
+  position: absolute;
+  top: 0.75rem; right: 0.75rem;
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.15s;
+  line-height: 1;
+  font-family: monospace;
+}
+
+.s-dismiss:hover { color: #888; }

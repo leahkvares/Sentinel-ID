@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "name": "Sentinel ID",
+  "version": "0.1.0",
+  "description": "A better MFA experience — replace Duo with your preferred authentication style.",
+  "author": "Sentinel ID",
+
+  "icons": {
+    "48":  "icons/icon48.png",
+    "96":  "icons/icon96.png"
+  },
+
+  "browser_action": {
+    "default_popup": "popup/popup.html",
+    "default_icon":  "icons/icon48.png",
+    "default_title": "Sentinel ID"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.duosecurity.com/*",
+        "*://*.duosecurity.com/frame/*",
+        "*://*.rit.edu/*",
+        "*://*.mycourses.rit.edu/*",
+        "*://duosecurity.com/*"
+      ],
+      "js":  ["content/content.js"],
+      "css": ["content/sentinel.css"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+
+  "permissions": [
+    "storage",
+    "activeTab",
+    "*://*.duosecurity.com/*",
+    "*://*.rit.edu/*"
+  ],
+
+  "web_accessible_resources": [
+    "content/sentinel.css",
+    "icons/icon48.png"
+  ]
+}

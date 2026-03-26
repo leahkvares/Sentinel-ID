@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sentinel ID</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Syne:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css"/>
+</head>
+<body>
+  <div class="popup">
+
+    <header class="popup-header">
+      <div class="logo">SENTINEL <span>ID</span></div>
+      <div class="status-dot" id="status-dot"></div>
+    </header>
+
+    <div class="section-label">// Auth Style</div>
+    <div class="style-list" id="style-list">
+
+      <button class="style-btn" data-style="minimal" title="A single tap — no code, no friction.">
+        <div class="style-icon">◎</div>
+        <div class="style-info">
+          <div class="style-name">One-Tap Approve</div>
+          <div class="style-desc">Single button. No code required.</div>
+        </div>
+        <div class="style-check">✓</div>
+      </button>
+
+      <button class="style-btn" data-style="pin" title="Enter a short PIN you set yourself.">
+        <div class="style-icon">⬡</div>
+        <div class="style-info">
+          <div class="style-name">Personal PIN</div>
+          <div class="style-desc">Your own 4–6 digit code.</div>
+        </div>
+        <div class="style-check">✓</div>
+      </button>
+
+      <button class="style-btn" data-style="passphrase" title="Type a memorable word or phrase.">
+        <div class="style-icon">◈</div>
+        <div class="style-info">
+          <div class="style-name">Passphrase</div>
+          <div class="style-desc">A word or phrase you remember.</div>
+        </div>
+        <div class="style-check">✓</div>
+      </button>
+
+      <button class="style-btn" data-style="pattern" title="Draw a pattern on a grid.">
+        <div class="style-icon">⬛</div>
+        <div class="style-info">
+          <div class="style-name">Grid Pattern</div>
+          <div class="style-desc">Draw your unlock pattern.</div>
+        </div>
+        <div class="style-check">✓</div>
+      </button>
+
+      <button class="style-btn" data-style="biometric" title="Simulate a biometric prompt.">
+        <div class="style-icon">◑</div>
+        <div class="style-info">
+          <div class="style-name">Biometric</div>
+          <div class="style-desc">Fingerprint / Face ID style.</div>
+        </div>
+        <div class="style-check">✓</div>
+      </button>
+
+    </div>
+
+    <div class="section-label" style="margin-top:1rem">// Overlay</div>
+    <div class="demo-row">
+      <div class="demo-label-group">
+        <span class="demo-label">Sentinel overlay</span>
+        <span class="demo-sublabel" id="overlay-sublabel">Replaces Duo on auth pages</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="overlay-toggle" checked/>
+        <span class="track"><span class="thumb"></span></span>
+      </label>
+    </div>
+
+    <div class="section-label" style="margin-top:1rem">// Demo Mode</div>
+    <div class="demo-row">
+      <span class="demo-label">Inject on any page</span>
+      <label class="toggle">
+        <input type="checkbox" id="demo-toggle"/>
+        <span class="track"><span class="thumb"></span></span>
+      </label>
+    </div>
+
+    <button class="preview-btn" id="preview-btn">Preview Selected Style →</button>
+
+    <footer class="popup-footer">
+      Sentinel ID &nbsp;·&nbsp; MVP v0.1
+    </footer>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
