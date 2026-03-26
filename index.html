@@ -21,7 +21,7 @@
     <button class="nav-cta" onclick="showPage('invest')">Get Access</button>
   </nav>
 
-  <!-- ── HOME PAGE ── -->
+  <!-- HOME PAGE -->
   <div id="home" class="page active">
     <div class="bg-number">2FA</div>
     <div class="hero-content">
@@ -42,7 +42,7 @@
     </div>
   </div>
 
-  <!-- ── ABOUT PAGE ── -->
+  <!-- ABOUT PAGE -->
   <div id="about" class="page">
     <div class="page-header">
       <p class="page-tag">// Who we are</p>
@@ -79,7 +79,6 @@
         </div>
       </div>
     </div>
-
     <div class="pillars">
       <div class="pillar">
         <div class="pillar-num">01</div>
@@ -99,7 +98,7 @@
     </div>
   </div>
 
-  <!-- ── INVEST PAGE ── -->
+  <!-- INVEST PAGE -->
   <div id="invest" class="page">
     <div class="page-header">
       <p class="page-tag">// Join the round</p>
@@ -154,64 +153,149 @@
       </div>
     </div>
 
-    <div class="cta-block">
-      <div class="cta-block-text">
-        <h3>Ready to talk?</h3>
-        <p>investors@sentinelid.io &nbsp;·&nbsp; Deck available under NDA</p>
-      </div>
-      <button class="btn-primary" style="white-space:nowrap" onclick="alert('Thanks for your interest in Sentinel ID. We\'ll be in touch.')">Request Deck →</button>
+    <!-- STRIPE PRICING -->
+    <div class="section-divider">
+      <p class="page-tag">// Choose your model</p>
+      <h2 class="section-heading">Get Sentinel ID</h2>
+      <p class="section-subhead">Two ways to deploy university-grade MFA. Pick the model that fits your institution.</p>
     </div>
-  </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <div class="pricing-model-tag">AaaS</div>
+          <div class="pricing-title">Authentication as a Service</div>
+          <div class="pricing-desc">We run it. You relax. Our team manages your entire MFA infrastructure — setup, monitoring, and incident response included.</div>
+        </div>
+        <div class="pricing-price">
+          <span class="price-amount">$499</span>
+          <span class="price-period">/ month</span>
+        </div>
+        <ul class="pricing-features">
+          <li>Fully managed MFA infrastructure</li>
+          <li>24/7 monitoring &amp; incident response</li>
+          <li>Onboarding &amp; staff training</li>
+          <li>SAML, OIDC &amp; FIDO2 compliant</li>
+          <li>SLA-backed 99.99% uptime</li>
+        </ul>
+        <button class="btn-primary pricing-btn" onclick="handleStripeCheckout('aaas')">Subscribe Now &rarr;</button>
+        <p class="pricing-note">Billed monthly. Cancel anytime.</p>
+      </div>
+
+      <div class="pricing-card pricing-card-featured">
+        <div class="pricing-badge">ONE-TIME</div>
+        <div class="pricing-card-header">
+          <div class="pricing-model-tag">SaaS</div>
+          <div class="pricing-title">Software as a Service</div>
+          <div class="pricing-desc">Own your stack. We hand over the software and your team manages MFA on your own infrastructure, your own terms.</div>
+        </div>
+        <div class="pricing-price">
+          <span class="price-amount">$4,999</span>
+          <span class="price-period">one-time license</span>
+        </div>
+        <ul class="pricing-features">
+          <li>Full software license &amp; source access</li>
+          <li>Self-hosted on your infrastructure</li>
+          <li>90-day onboarding support</li>
+          <li>Admin dashboard &amp; user portal</li>
+          <li>Annual update subscription available</li>
+        </ul>
+        <button class="btn-primary pricing-btn" onclick="handleStripeCheckout('saas')">Purchase License &rarr;</button>
+        <p class="pricing-note">One-time payment. Yours to keep.</p>
+      </div>
+    </div>
+
+    <div id="stripe-message" class="stripe-message" style="display:none"></div>
+
+    <!-- MAILERLITE INTEREST FORM -->
+    <div class="section-divider" style="margin-top:5rem">
+      <p class="page-tag">// Stay in the loop</p>
+      <h2 class="section-heading">Register Interest</h2>
+      <p class="section-subhead">Not ready to commit yet? Join the list. We'll send you the deck, data room access, and launch updates.</p>
+    </div>
+
+    <div class="interest-form-wrap">
+      <form class="interest-form" id="interest-form" onsubmit="handleMailerLite(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" id="ml-first" placeholder="Ada" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" id="ml-last" placeholder="Lovelace" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group form-group-wide">
+            <label class="form-label">University / Institution Email</label>
+            <input class="form-input" type="email" id="ml-email" placeholder="ada@university.edu" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group form-group-wide">
+            <label class="form-label">Role</label>
+            <input class="form-input" type="text" id="ml-role" placeholder="CIO, IT Director, Procurement..." />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group form-group-wide">
+            <label class="form-label">Which model interests you?</label>
+            <div class="form-radio-group">
+              <label class="form-radio"><input type="radio" name="model" value="AaaS" checked /> AaaS &mdash; Managed service</label>
+              <label class="form-radio"><input type="radio" name="model" value="SaaS" /> SaaS &mdash; Self-hosted license</label>
+              <label class="form-radio"><input type="radio" name="model" value="Both" /> Both / Not sure yet</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-primary" type="submit" id="ml-submit">Register Interest &rarr;</button>
+          <span id="ml-status" class="ml-status"></span>
+        </div>
+      </form>
+    </div>
+
+  </div><!-- end #invest -->
 
   <!-- TICKER -->
   <div class="ticker-wrap">
     <div class="ticker">
       <span class="highlight">SENTINEL ID</span>
       <span>Zero-Trust Auth</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
       <span>Device-Bound Keys</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
       <span>0.3ms Latency</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
       <span>FIDO2 Compliant</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
       <span>40K+ Waitlist</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
       <span>Seed Round Open</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
       <span>Q3 2026 Launch</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
       <span class="highlight">SENTINEL ID</span>
       <span>Zero-Trust Auth</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
       <span>Device-Bound Keys</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
       <span>0.3ms Latency</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
       <span>FIDO2 Compliant</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
       <span>40K+ Waitlist</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
       <span>Seed Round Open</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
       <span>Q3 2026 Launch</span>
-      <span class="highlight">·</span>
+      <span class="highlight">&middot;</span>
     </div>
   </div>
 
-  <script>
-    function showPage(id) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  <script src="site.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="invest.js"></script>
 
-      const page = document.getElementById(id);
-      if (page) page.classList.add('active');
-
-      const navLink = document.getElementById('nav-' + id);
-      if (navLink) navLink.classList.add('active');
-
-      window.scrollTo({ top: 0 });
-    }
-  </script>
 </body>
 </html>
