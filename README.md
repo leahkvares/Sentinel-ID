@@ -4,7 +4,7 @@
 
 **Live site:** [getsentinelid.today](https://getsentinelid.today)  
 **Firefox Add-on:** [Add-ons Marketplace listing]([LINK])  
-**Course:** MGIS 360 — Web Business Development  
+**Course:** MGIS 360 — Building A Web Business  
 
 ---
 
@@ -112,7 +112,7 @@ python3 -m http.server 8000
 
 ## Website — Deployment
 
-The site is hosted on GitHub Pages with Cloudflare for DNS and SSL.
+The site is hosted on a Linux server running Apache with Cloudflare for DNS and SSL.
 
 **Deploy process:**
 ```bash
@@ -121,7 +121,7 @@ git commit -m "your message"
 git push origin main
 ```
 
-GitHub Pages serves directly from the `main` branch. Cloudflare handles SSL termination and CDN caching. Changes are live within ~60 seconds of push.
+Apache serves directly from the `main` branch. Cloudflare handles SSL termination and CDN caching. Changes are live within ~60 seconds of push.
 
 ---
 
@@ -169,7 +169,7 @@ Stripe is in test mode. Use card number `4242 4242 4242 4242` with any future ex
 
 ## Course Context
 
-This repository was built as part of MGIS 360 (Web Business Development). It represents the full development journey of Sentinel ID from initial concept through a live, payment-ready web business.
+This repository was built as part of MGIS 360 (Building A Web Business). It represents the full development journey of Sentinel ID from initial concept through a live, payment-ready web business.
 
 Milestone documentation is in `/docs`.
 
