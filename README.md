@@ -3,7 +3,7 @@
 > The better MFA solution — a Firefox browser extension that replaces Duo Security's authentication interface with a customizable, student-chosen login experience.
 
 **Live site:** [getsentinelid.today](https://getsentinelid.today)  
-**Firefox Add-on:** [Add-ons Marketplace listing]([LINK])  
+**Firefox Add-on:** [Add-ons Marketplace listing](https://addons.mozilla.org/en-US/firefox/addon/sentinel-id/)  
 **Course:** MGIS 360 — Building A Web Business  
 
 ---
