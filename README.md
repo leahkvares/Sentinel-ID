@@ -127,7 +127,7 @@ Apache serves directly from the `main` branch. Cloudflare handles SSL terminatio
 
 ## Extension — Publishing to Firefox AMO
 
-The extension is published at: [LINK TO AMO LISTING]
+The extension is published as an experimental add-on.
 
 To submit an update:
 
